@@ -6,7 +6,7 @@ function Hero() {
   };
 
   return (
-    <section id="home" className="hero-section" style={{ marginBottom: 'clamp(1rem, 3vw, 2rem)' }}>
+    <section id="home" className="hero-section">
       <div style={{ 
         textAlign: 'center', 
         width: '100%', 

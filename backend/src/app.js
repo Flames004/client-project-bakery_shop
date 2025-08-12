@@ -25,7 +25,7 @@ app.use(express.urlencoded({ extended: true }));
 
 // Session middleware
 app.use(session({
-  secret: 'sweet-crumbs-demo-secret-key',
+  secret: 'maakhan-bakers-demo-secret-key',
   resave: false,
   saveUninitialized: false,
   cookie: {
@@ -41,14 +41,14 @@ app.use('/api/admin', adminRoutes);
 
 // Health check
 app.get('/api/health', (req, res) => {
-  res.json({ status: 'OK', message: 'Sweet Crumbs API is running!' });
+  res.json({ status: 'OK', message: 'Maakhan Bakers API is running!' });
 });
 
 // Initialize database and start server
 initDatabase()
   .then(() => {
     app.listen(PORT, () => {
-      console.log(`🍰 Sweet Crumbs API server running on port ${PORT}`);
+      console.log(`🍰 Maakhan Bakers API server running on port ${PORT}`);
       console.log(`📊 Admin credentials: admin@sweetcrumbs.demo / DemoAdmin123!`);
     });
   })

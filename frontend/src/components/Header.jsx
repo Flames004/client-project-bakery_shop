@@ -1,7 +1,16 @@
-import { useNavigate } from 'react-router-dom';
+import Logo from './Logo';
 
 function Header() {
-  const navigate = useNavigate();
+  const handleAdminLogin = () => {
+    window.location.href = '/admin-login.html';
+  };
+
+  const scrollToSection = (sectionId) => {
+    const element = document.getElementById(sectionId);
+    if (element) {
+      element.scrollIntoView({ behavior: 'smooth' });
+    }
+  };
 
   return (
     <header style={{
@@ -93,6 +102,10 @@ function Header() {
               display: 'none'
             }}
             className="nav-link"
+            onClick={(e) => {
+              e.preventDefault();
+              window.scrollTo({ top: 0, behavior: 'smooth' });
+            }}
           >
             Home
           </a>
@@ -111,9 +124,7 @@ function Header() {
             className="nav-link"
             onClick={(e) => {
               e.preventDefault();
-              document.getElementById('order-form')?.scrollIntoView({ 
-                behavior: 'smooth' 
-              });
+              scrollToSection('order-form');
             }}
           >
             Order Now
@@ -121,7 +132,7 @@ function Header() {
 
           {/* Admin Login Button */}
           <button
-            onClick={() => navigate('/admin/login')}
+            onClick={handleAdminLogin}
             style={{
               background: 'linear-gradient(135deg, var(--saffron), var(--golden))',
               color: 'white',

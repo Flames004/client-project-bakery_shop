@@ -1,9 +1,7 @@
 function About() {
   return (
     <section id="about" className="section" style={{ 
-      background: 'var(--warm-white)',
-      marginTop: 'clamp(2rem, 5vw, 4rem)',
-      paddingTop: 'clamp(2rem, 5vw, 4rem)'
+      background: 'var(--warm-white)'
     }}>
       <div className="container">
         <div className="features-grid">

@@ -1,7 +1,7 @@
 {
-  "name": "sweet-crumbs-bakery",
+  "name": "maakhan-bakers",
   "version": "1.0.0",
-  "description": "Sweet Crumbs - Online Bakery Demo",
+  "description": "Maakhan Bakers - Online Bakery Demo",
   "private": true,
   "workspaces": [
     "frontend",

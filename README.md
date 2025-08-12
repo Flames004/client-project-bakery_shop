@@ -1,4 +1,4 @@
-# Sweet Crumbs - Online Bakery Demo
+# Maakhan Bakers - Online Bakery Demo
 
 A modern, responsive bakery website showcasing full-stack development skills.
 

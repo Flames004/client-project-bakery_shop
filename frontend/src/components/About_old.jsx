@@ -1,9 +1,7 @@
 function About() {
   return (
     <section id="about" className="section" style={{ 
-      background: 'var(--warm-white)',
-      marginTop: 'clamp(2rem, 5vw, 4rem)',
-      paddingTop: 'clamp(2rem, 5vw, 4rem)'
+      background: 'var(--warm-white)'
     }}>
       <div className="container">
         <div className="features-grid">
@@ -51,8 +49,6 @@ function About() {
               <div className="stat-highlight">
                 <div style={{ 
                   fontSize: 'clamp(2rem, 5vw, 3rem)',
-                  fontWeight: 'bold',
-                  color: 'var(--saffron)',
                   marginBottom: '0.5rem'
                 }}>
                   25+
@@ -70,8 +66,6 @@ function About() {
               <div className="stat-highlight">
                 <div style={{ 
                   fontSize: 'clamp(2rem, 5vw, 3rem)',
-                  fontWeight: 'bold',
-                  color: 'var(--saffron)',
                   marginBottom: '0.5rem'
                 }}>
                   50+
@@ -89,8 +83,6 @@ function About() {
               <div className="stat-highlight">
                 <div style={{ 
                   fontSize: 'clamp(2rem, 5vw, 3rem)',
-                  fontWeight: 'bold',
-                  color: 'var(--saffron)',
                   marginBottom: '0.5rem'
                 }}>
                   1000+
@@ -116,28 +108,15 @@ function About() {
               border: '2px solid var(--border-gold)',
               borderRadius: '1.5rem',
               padding: 'clamp(2rem, 5vw, 3rem)',
-              boxShadow: '0 8px 25px rgba(139, 0, 0, 0.1)',
-              position: 'relative',
-              overflow: 'hidden'
+              boxShadow: '0 8px 25px rgba(139, 0, 0, 0.1)'
             }}>
-              <div style={{
-                position: 'absolute',
-                top: '1rem',
-                right: '1rem',
-                fontSize: '2rem',
-                opacity: 0.3
-              }}>
-                🏺
-              </div>
-              
               <div style={{ 
                 fontSize: 'clamp(4rem, 8vw, 6rem)',
                 marginBottom: '1rem',
                 background: 'linear-gradient(135deg, var(--golden), var(--saffron))',
                 WebkitBackgroundClip: 'text',
                 WebkitTextFillColor: 'transparent',
-                backgroundClip: 'text',
-                filter: 'drop-shadow(2px 2px 4px rgba(0,0,0,0.1))'
+                backgroundClip: 'text'
               }}>
                 🧈
               </div>
@@ -158,10 +137,87 @@ function About() {
               }}>
                 Every morning brings fresh maakhan, warm rotis, and divine sweets made with love and tradition.
                 <br/><br/>
-                <em style={{ color: 'var(--saffron)', fontStyle: 'italic' }}>
+                <em style={{ color: 'var(--saffron)' }}>
                   "मक्खन से मिली है मिठास, यही है हमारी पहचान"
                 </em>
               </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  );
+}
+                <div style={{ 
+                  fontWeight: 'bold', 
+                  color: 'var(--saffron)',
+                  fontSize: 'clamp(2rem, 5vw, 3rem)'
+                }}>25+</div>
+                <div style={{ 
+                  color: 'var(--text-dark)',
+                  fontSize: 'clamp(0.875rem, 2.5vw, 1rem)',
+                  fontWeight: '500'
+                }}>वर्षों का अनुभव</div>
+                <div style={{ 
+                  color: 'var(--brown)', 
+                  fontSize: 'clamp(0.75rem, 2vw, 0.875rem)'
+                }}>Years Experience</div>
+              </div>
+              <div>
+                <div style={{ 
+                  fontWeight: 'bold', 
+                  color: 'var(--saffron)',
+                  fontSize: 'clamp(2rem, 5vw, 3rem)'
+                }}>5000+</div>
+                <div style={{ 
+                  color: 'var(--text-dark)',
+                  fontSize: 'clamp(0.875rem, 2.5vw, 1rem)',
+                  fontWeight: '500'
+                }}>खुश ग्राहक</div>
+                <div style={{ 
+                  color: 'var(--brown)', 
+                  fontSize: 'clamp(0.75rem, 2vw, 0.875rem)'
+                }}>Happy Families</div>
+              </div>
+              <div>
+                <div style={{ 
+                  fontWeight: 'bold', 
+                  color: 'var(--saffron)',
+                  fontSize: 'clamp(2rem, 5vw, 3rem)'
+                }}>100+</div>
+                <div style={{ 
+                  color: 'var(--text-dark)',
+                  fontSize: 'clamp(0.875rem, 2.5vw, 1rem)',
+                  fontWeight: '500'
+                }}>पारंपरिक व्यंजन</div>
+                <div style={{ 
+                  color: 'var(--brown)', 
+                  fontSize: 'clamp(0.75rem, 2vw, 0.875rem)'
+                }}>Traditional Recipes</div>
+              </div>
+            </div>
+          </div>
+          <div style={{ position: 'relative' }}>
+            <img 
+              src="https://images.unsplash.com/photo-1578662996442-48f60103fc96?w=600&h=400&fit=crop" 
+              alt="Traditional Indian sweets being made"
+              className="rounded-2xl shadow-xl"
+              style={{ width: '100%' }}
+            />
+            <div className="card p-6" style={{ 
+              position: 'absolute', 
+              bottom: '-1.5rem', 
+              left: '-1.5rem', 
+              background: 'linear-gradient(45deg, var(--golden), var(--saffron))',
+              boxShadow: '0 20px 25px rgba(0, 0, 0, 0.2)',
+              color: 'white'
+            }}>
+              <div className="text-xl" style={{ fontFamily: 'Poppins', fontWeight: '600' }}>
+                🌅 प्रतिदिन ताज़ा
+              </div>
+              <div style={{ color: 'rgba(255,255,255,0.9)', fontSize: '0.875rem' }}>
+                Fresh Daily with Divine Blessings
+              </div>
             </div>
           </div>
         </div>

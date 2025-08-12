@@ -54,7 +54,7 @@ function HomePage() {
       <div className="min-h-screen flex items-center justify-center">
         <div className="text-center">
           <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-primary mx-auto mb-4"></div>
-          <p className="text-brown">Loading Sweet Crumbs...</p>
+          <p className="text-brown">Loading Maakhan Bakers...</p>
         </div>
       </div>
     );
@@ -63,7 +63,7 @@ function HomePage() {
   return (
     <div style={{ width: '100%', minHeight: '100vh' }}>
       <Header />
-      <div style={{ paddingTop: 'clamp(80px, 15vw, 100px)' }}>
+      <div style={{ paddingTop: 'clamp(100px, 20vw, 120px)' }}>
         <Hero />
         <About />
         <SeasonalOffer />

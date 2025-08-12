@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Login - Maakhan Bakers</title>
+    <link rel="stylesheet" href="/src/index.css">
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: 'Inter', system-ui, -apple-system, sans-serif;
+            min-height: 100vh;
+            background: linear-gradient(135deg, var(--cream), var(--warm-white));
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .admin-login-page {
+            width: 100%;
+            max-width: 450px;
+            padding: 2rem;
+        }
+        
+        .login-card {
+            background: linear-gradient(145deg, var(--warm-white), var(--cream));
+            border: 2px solid var(--border-gold);
+            border-radius: 1rem;
+            padding: 2rem;
+            box-shadow: 0 10px 25px rgba(139, 0, 0, 0.15);
+        }
+        
+        .login-header {
+            text-align: center;
+            margin-bottom: 1.5rem;
+        }
+        
+        .login-title {
+            color: var(--deep-red);
+            font-size: 2rem;
+            font-weight: bold;
+            margin: 0 0 0.5rem 0;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.1);
+        }
+        
+        .login-subtitle {
+            color: var(--text-dark);
+            font-size: 1rem;
+            margin: 0;
+            opacity: 0.8;
+        }
+        
+        .demo-info {
+            background: linear-gradient(135deg, var(--saffron), var(--golden));
+            color: white;
+            padding: 1rem;
+            border-radius: 0.5rem;
+            margin-bottom: 1.5rem;
+            text-align: center;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+        
+        .form-group {
+            margin-bottom: 1rem;
+        }
+        
+        .form-label {
+            display: block;
+            color: var(--text-dark);
+            font-weight: 600;
+            font-size: 0.875rem;
+            margin-bottom: 0.5rem;
+        }
+        
+        .form-input {
+            width: 100%;
+            padding: 0.75rem;
+            border: 2px solid var(--border-gold);
+            border-radius: 0.5rem;
+            font-size: 1rem;
+            background: var(--warm-white);
+            color: var(--text-dark);
+            transition: all 0.3s ease;
+            box-sizing: border-box;
+        }
+        
+        .form-input:focus {
+            outline: none;
+            border-color: var(--golden);
+            box-shadow: 0 0 0 3px rgba(255, 215, 0, 0.1);
+        }
+        
+        .login-btn {
+            width: 100%;
+            background: linear-gradient(135deg, var(--deep-red), var(--saffron));
+            color: white;
+            border: none;
+            padding: 0.75rem 1rem;
+            border-radius: 0.5rem;
+            cursor: pointer;
+            font-size: 1rem;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            margin-top: 1rem;
+        }
+        
+        .login-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(139, 0, 0, 0.2);
+        }
+        
+        .back-link {
+            display: block;
+            text-align: center;
+            margin-top: 1.5rem;
+            color: var(--deep-red);
+            text-decoration: none;
+            font-size: 0.875rem;
+        }
+        
+        .error-message {
+            background: #fef2f2;
+            border: 2px solid #fecaca;
+            color: #991b1b;
+            padding: 0.75rem;
+            border-radius: 0.5rem;
+            margin-bottom: 1rem;
+            font-size: 0.875rem;
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <div class="admin-login-page">
+        <div class="login-card">
+            <!-- Header -->
+            <div class="login-header">
+                <h1 class="login-title">🧈 Admin Login</h1>
+                <p class="login-subtitle">प्रबंधन लॉगिन (Management Login)</p>
+            </div>
+
+            <!-- Demo Credentials Info -->
+            <div class="demo-info">
+                <h3 style="margin: 0 0 0.5rem 0;">📋 Demo Credentials:</h3>
+                <p style="margin: 0.25rem 0;"><strong>Email:</strong> admin@sweetcrumbs.demo</p>
+                <p style="margin: 0.25rem 0;"><strong>Password:</strong> DemoAdmin123!</p>
+            </div>
+
+            <!-- Login Form -->
+            <form id="loginForm">
+                <div id="errorMessage" class="error-message"></div>
+
+                <div class="form-group">
+                    <label for="email" class="form-label">📧 Email Address</label>
+                    <input type="email" id="email" name="email" class="form-input" placeholder="Enter your email" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="password" class="form-label">🔐 Password</label>
+                    <input type="password" id="password" name="password" class="form-input" placeholder="Enter your password" required>
+                </div>
+
+                <button type="submit" class="login-btn" id="loginBtn">
+                    🚪 Login to Dashboard
+                </button>
+            </form>
+
+            <!-- Footer -->
+            <a href="/" class="back-link">← Back to Website</a>
+        </div>
+    </div>
+
+    <script>
+        document.getElementById('loginForm').addEventListener('submit', async function(e) {
+            e.preventDefault();
+            
+            const errorDiv = document.getElementById('errorMessage');
+            const loginBtn = document.getElementById('loginBtn');
+            
+            // Get form data
+            const email = document.getElementById('email').value;
+            const password = document.getElementById('password').value;
+            
+            // Show loading state
+            loginBtn.disabled = true;
+            loginBtn.textContent = 'Logging in...';
+            errorDiv.style.display = 'none';
+            
+            try {
+                const response = await fetch('http://localhost:3001/api/admin/login', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    credentials: 'include',
+                    body: JSON.stringify({ email, password })
+                });
+                
+                const data = await response.json();
+                
+                if (response.ok) {
+                    // Login successful - redirect to admin dashboard
+                    window.location.href = '/admin-dashboard.html';
+                } else {
+                    // Show error
+                    errorDiv.textContent = data.error || 'Login failed';
+                    errorDiv.style.display = 'block';
+                }
+            } catch (error) {
+                console.error('Login error:', error);
+                errorDiv.textContent = 'Network error. Please check if the server is running.';
+                errorDiv.style.display = 'block';
+            } finally {
+                // Reset button
+                loginBtn.disabled = false;
+                loginBtn.innerHTML = '🚪 Login to Dashboard';
+            }
+        });
+    </script>
+</body>
+</html>
